@@ -1,0 +1,276 @@
+/* =========================================================
+   পুজোর সাথী — Section layouts
+   ========================================================= */
+
+.section {
+  padding-block: var(--space-2xl);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--bg-1);
+}
+
+.hero-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    var(--glow),
+    linear-gradient(180deg, var(--bg-2) 0%, var(--bg-1) 55%, var(--bg-1) 100%);
+  transition: background var(--dur-slow) var(--ease-cinema);
+}
+
+.hero-arch {
+  position: absolute;
+  right: -8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(56vw, 640px);
+  opacity: 0.9;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: var(--space-lg);
+  padding-top: 6rem;
+}
+
+.hero-eyebrow-free {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text-faint);
+  font-size: 0.95rem;
+}
+
+.hero-title {
+  font-size: var(--fs-hero);
+  max-width: 15ch;
+}
+
+.hero-title .line {
+  display: block;
+  opacity: 0;
+  transform: translateY(0.4em);
+  animation: line-rise var(--dur-slow) var(--ease-cinema) forwards;
+}
+
+.hero-title .line:nth-child(1) { animation-delay: 0.15s; }
+.hero-title .line:nth-child(2) { animation-delay: 0.32s; color: var(--accent-strong); }
+
+.hero-sub {
+  max-width: 46ch;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  opacity: 0;
+  animation: fade-up var(--dur-slow) var(--ease-cinema) forwards;
+  animation-delay: 0.55s;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  opacity: 0;
+  animation: fade-up var(--dur-slow) var(--ease-cinema) forwards;
+  animation-delay: 0.72s;
+}
+
+.hero-scroll-cue {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-faint);
+  font-size: var(--fs-small);
+}
+
+.hero-scroll-cue .stem {
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(var(--accent), transparent);
+  animation: stem-pulse 2.2s ease-in-out infinite;
+}
+
+/* ---------- Countdown ---------- */
+.countdown-section {
+  background: var(--bg-2);
+}
+
+.countdown-panel {
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.countdown-title {
+  font-size: var(--fs-h2);
+}
+
+.countdown-date {
+  margin-top: var(--space-xs);
+  color: var(--text-faint);
+  font-size: var(--fs-small);
+}
+
+.countdown-grid {
+  margin-top: var(--space-lg);
+}
+
+/* ---------- সাথী খুঁজুন ---------- */
+.match-section .container {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.match-panel {
+  padding: var(--space-lg);
+  display: grid;
+  gap: var(--space-md);
+}
+
+/* ---------- How it works ---------- */
+.steps-list {
+  display: grid;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+@media (min-width: 760px) {
+  .steps-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Community ---------- */
+.community-grid {
+  display: grid;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+/* ---------- About creator ---------- */
+.about-section .container {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .about-section .container {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+}
+
+.about-portrait {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-card);
+  background: linear-gradient(155deg, var(--marigold-soft), var(--sindoor) 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: rgba(255, 248, 236, 0.92);
+  box-shadow: var(--shadow-soft);
+}
+
+.about-quote {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: 1.5;
+}
+
+.about-name {
+  margin-top: var(--space-md);
+  color: var(--text-muted);
+}
+
+/* ---------- Atmosphere / music ---------- */
+.atmosphere-section {
+  background: var(--bg-2);
+}
+
+.atmosphere-section .container {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 860px) {
+  .atmosphere-section .container {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding-block: var(--space-xl) var(--space-lg);
+  background: var(--bg-1);
+  border-top: 1px solid var(--surface-border);
+}
+
+.footer-top {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 760px) {
+  .footer-top {
+    grid-template-columns: 1.3fr 1fr 1fr;
+  }
+}
+
+.footer-brand p {
+  margin-top: var(--space-sm);
+  max-width: 34ch;
+  color: var(--text-muted);
+}
+
+.footer-col h4 {
+  font-size: 1rem;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+}
+
+.footer-col ul {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.footer-col a {
+  color: var(--text-muted);
+}
+
+.footer-col a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--surface-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: space-between;
+  color: var(--text-faint);
+  font-size: var(--fs-small);
+}

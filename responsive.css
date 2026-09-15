@@ -1,0 +1,72 @@
+/* =========================================================
+   পুজোর সাথী — Responsive overrides
+   Base styles elsewhere are already mobile-friendly;
+   this file fine-tunes edge cases.
+   ========================================================= */
+
+@media (max-width: 720px) {
+  .section {
+    padding-block: var(--space-xl);
+  }
+
+  .hero .container {
+    padding-top: 5.5rem;
+  }
+
+  .hero-arch {
+    width: 80vw;
+    right: -30%;
+    top: 22%;
+    transform: none;
+    opacity: 0.55;
+  }
+
+  .hero-title {
+    max-width: 12ch;
+  }
+
+  .countdown-grid {
+    gap: 0.6rem;
+  }
+
+  .countdown-cell {
+    padding: var(--space-sm) 0.2rem;
+  }
+
+  .countdown-cell .num {
+    font-size: clamp(1.6rem, 9vw, 2.4rem);
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .player {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .player-volume {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .about-section .container {
+    text-align: left;
+  }
+}
+
+@media (max-width: 420px) {
+  .countdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: var(--space-sm);
+  }
+}
+
+/* Landscape-short viewports (phones rotated): shrink hero height */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding-block: var(--space-xl);
+  }
+}

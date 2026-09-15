@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>পুজোর সাথী — উৎসবের সাথী খুঁজে নিন</title>
+<meta name="description" content="পুজোর সাথী — দুর্গাপুজোয় নিজের মতো আগ্রহের মানুষের সাথে দেখা করুন। প্যান্ডেল হপিং, ধুনুচি নাচ, আড্ডা — যাই ভালো লাগুক।" />
+
+<!-- Bengali-first display + body fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/sections.css" />
+<link rel="stylesheet" href="css/animations.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+<!-- transition veil used for smooth in-page section jumps -->
+<div class="veil" id="veil" aria-hidden="true"></div>
+
+<!-- floating shiuli petals, purely decorative -->
+<div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+<header class="site-nav" id="siteNav">
+  <div class="container">
+    <a href="#top" class="brand">
+      <span class="brand-mark">॥</span> পুজোর সাথী
+    </a>
+
+    <nav class="nav-links" aria-label="প্রধান মেনু">
+      <a href="#countdown">পুজো আসছে</a>
+      <a href="#sathi">সাথী খুঁজুন</a>
+      <a href="#how">কীভাবে কাজ করে</a>
+      <a href="#community">কমিউনিটি</a>
+      <a href="#about">আমাদের কথা</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="live-clock" id="liveClock" aria-live="off">
+        <span class="clock-time">--:--</span>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="দিন / রাত মোড বদলান">
+        <span id="themeIcon">🌙</span>
+      </button>
+      <a href="#sathi" class="btn btn-primary nav-cta">সাথী খুঁজুন <span class="arrow">→</span></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="মেনু খুলুন" aria-expanded="false" aria-controls="mobileDrawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile full-screen drawer -->
+<nav class="mobile-drawer" id="mobileDrawer" aria-label="মোবাইল মেনু">
+  <a href="#countdown">পুজো আসছে</a>
+  <a href="#sathi">সাথী খুঁজুন</a>
+  <a href="#how">কীভাবে কাজ করে</a>
+  <a href="#community">কমিউনিটি</a>
+  <a href="#about">আমাদের কথা</a>
+  <a href="#sathi" class="btn btn-primary">সাথী খুঁজুন <span class="arrow">→</span></a>
+</nav>
+
+<main id="top">
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+  <section class="hero" id="hero">
+    <div class="hero-backdrop" aria-hidden="true"></div>
+
+    <!-- decorative chalchitra-style arch, drawn as original line-art -->
+    <svg class="hero-arch" viewBox="0 0 500 620" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="color: var(--accent)">
+      <path d="M250 20C130 20 60 110 60 230V600" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5"/>
+      <path d="M250 20C370 20 440 110 440 230V600" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5"/>
+      <path d="M250 60C155 60 100 135 100 235V600" stroke="currentColor" stroke-opacity="0.3" stroke-width="1"/>
+      <path d="M250 60C345 60 400 135 400 235V600" stroke="currentColor" stroke-opacity="0.3" stroke-width="1"/>
+      <circle cx="250" cy="46" r="10" stroke="currentColor" stroke-opacity="0.6" stroke-width="1.5"/>
+      <path d="M40 230C110 190 390 190 460 230" stroke="currentColor" stroke-opacity="0.35" stroke-width="1"/>
+      <path d="M20 300C120 260 380 260 480 300" stroke="currentColor" stroke-opacity="0.25" stroke-width="1"/>
+      <g opacity="0.5">
+        <path d="M250 90 L258 108 L278 110 L263 123 L268 143 L250 132 L232 143 L237 123 L222 110 L242 108 Z" fill="currentColor" fill-opacity="0.35"/>
+      </g>
+    </svg>
+
+    <div class="container">
+      <p class="hero-eyebrow-free">
+        <span id="dayPartLabel">সন্ধ্যা নামছে</span> · কলকাতা ও সারা বাংলা জুড়ে
+      </p>
+
+      <h1 class="hero-title">
+        <span class="line">উৎসবের ভিড়ে,</span>
+        <span class="line">একজন আপনার মতোই কেউ</span>
+      </h1>
+
+      <p class="hero-sub">
+        পুজোর চারদিন — ঢাকের আওয়াজ, আলোর সাজ, আর নতুন মানুষের সাথে দেখা। নিজের শহরে, নিজের প্যান্ডেলে, নিজের মতো আগ্রহের মানুষ খুঁজে নিন।
+      </p>
+
+      <div class="hero-actions">
+        <a href="#sathi" class="btn btn-primary">সাথী খুঁজুন <span class="arrow">→</span></a>
+        <a href="#how" class="btn btn-ghost">কীভাবে কাজ করে ↓</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-cue" aria-hidden="true">
+      <span>স্ক্রল করুন</span>
+      <span class="stem"></span>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PUJA COUNTDOWN
+       ========================================================= -->
+  <section class="section countdown-section" id="countdown">
+    <div class="container">
+      <div class="countdown-panel glass reveal">
+        <h2 class="countdown-title">মা আসছেন</h2>
+        <p class="countdown-date">মহাষষ্ঠী পর্যন্ত বাকি আর মাত্র —</p>
+
+        <div class="countdown-grid" id="countdownGrid">
+          <div class="countdown-cell">
+            <span class="num" id="cdDays">00</span>
+            <span class="label">দিন</span>
+          </div>
+          <div class="countdown-cell">
+            <span class="num" id="cdHours">00</span>
+            <span class="label">ঘণ্টা</span>
+          </div>
+          <div class="countdown-cell">
+            <span class="num" id="cdMinutes">00</span>
+            <span class="label">মিনিট</span>
+          </div>
+          <div class="countdown-cell">
+            <span class="num" id="cdSeconds">00</span>
+            <span class="label">সেকেন্ড</span>
+          </div>
+        </div>
+
+        <p class="countdown-date">১৭ অক্টোবর, ২০২৬ · মহাষষ্ঠী থেকে শুরু</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       সাথী খুঁজুন
+       ========================================================= -->
+  <section class="section match-section" id="sathi">
+    <div class="container">
+      <div class="match-panel glass reveal">
+        <div class="section-head" style="margin-bottom:0">
+          <h2>নিজের মতো মানুষ খুঁজে নিন</h2>
+          <p>প্যান্ডেল হপিং, ধুনুচি নাচ, আড্ডা, ফটোগ্রাফি, খাওয়াদাওয়া — যাই ভালো লাগুক, কেউ না কেউ এই পুজোয় আপনার অপেক্ষায় আছেন।</p>
+        </div>
+
+        <div class="chip-row" role="list" aria-label="আগ্রহের তালিকা">
+          <button class="chip is-active" type="button">প্যান্ডেল হপিং</button>
+          <button class="chip" type="button">ধুনুচি নাচ</button>
+          <button class="chip" type="button">আড্ডা মারা</button>
+          <button class="chip" type="button">ফটোগ্রাফি</button>
+          <button class="chip" type="button">খাওয়াদাওয়া</button>
+          <button class="chip" type="button">সাংস্কৃতিক অনুষ্ঠান</button>
+          <button class="chip" type="button">ঠাকুর দেখা</button>
+          <button class="chip" type="button">আলোকসজ্জা</button>
+        </div>
+
+        <div class="hero-actions" style="margin-top: var(--space-sm)">
+          <a href="#" class="btn btn-primary" id="sathiCta">সাথী খুঁজুন <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="alpona-divider" viewBox="0 0 200 40" aria-hidden="true">
+    <path d="M0 20C40 5 60 35 100 20C140 5 160 35 200 20" stroke="currentColor" stroke-width="1.4" fill="none"/>
+    <circle cx="100" cy="20" r="4" fill="currentColor"/>
+  </svg>
+
+  <!-- =========================================================
+       HOW IT WORKS
+       ========================================================= -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>কীভাবে কাজ করে</h2>
+        <p>তিনটে সহজ ধাপ — বাকিটা পুজোর আবহই সামলে নেবে।</p>
+      </div>
+
+      <div class="steps-list reveal-group">
+        <div class="step reveal" style="--stagger:0">
+          <span class="step-mark">১</span>
+          <div>
+            <h3 class="fs-h3" style="font-family:var(--font-display); font-size:1.2rem; margin-bottom:0.4rem;">প্রোফাইল তৈরি করুন</h3>
+            <p style="color:var(--text-muted)">নিজের শহর, পছন্দের প্যান্ডেল এলাকা আর ভালোলাগাগুলো লিখুন — মিনিট দুয়েকের ব্যাপার।</p>
+          </div>
+        </div>
+        <div class="step reveal" style="--stagger:1">
+          <span class="step-mark">২</span>
+          <div>
+            <h3 style="font-family:var(--font-display); font-size:1.2rem; margin-bottom:0.4rem;">মিলিয়ে নিন</h3>
+            <p style="color:var(--text-muted)">একই রকম আগ্রহ আর কাছাকাছি এলাকার মানুষদের সাথে পরিচয় হোক।</p>
+          </div>
+        </div>
+        <div class="step reveal" style="--stagger:2">
+          <span class="step-mark">৩</span>
+          <div>
+            <h3 style="font-family:var(--font-display); font-size:1.2rem; margin-bottom:0.4rem;">পুজোয় দেখা হোক</h3>
+            <p style="color:var(--text-muted)">প্যান্ডেলে, আড্ডায়, ধুনুচি নাচের মাঝে — নতুন বন্ধুত্ব শুরু হোক এই পুজোতেই।</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       COMMUNITY
+       ========================================================= -->
+  <section class="section" id="community" style="background: var(--bg-2)">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>সবাই এখানে নিজের মতো</h2>
+        <p>পুজোর সাথীতে যাঁরা ইতিমধ্যে যুক্ত হয়েছেন, তাঁদের কয়েকজন।</p>
+      </div>
+
+      <div class="community-grid reveal-group">
+        <article class="person-card glass reveal" style="--stagger:0">
+          <div class="person-head">
+            <div class="avatar" style="background: linear-gradient(135deg, var(--marigold-soft), var(--sindoor));">ঋ</div>
+            <div>
+              <p class="person-name">ঋতুপর্ণা</p>
+              <p class="person-loc">কলকাতা</p>
+            </div>
+          </div>
+          <p class="person-note">ধুনুচি নাচ ভালোবাসেন, প্রতি বছর নতুন প্যান্ডেলে যান।</p>
+        </article>
+
+        <article class="person-card glass reveal" style="--stagger:1">
+          <div class="person-head">
+            <div class="avatar" style="background: linear-gradient(135deg, var(--brass), var(--leaf));">অ</div>
+            <div>
+              <p class="person-name">অর্ণব</p>
+              <p class="person-loc">দমদম</p>
+            </div>
+          </div>
+          <p class="person-note">প্যান্ডেলের আলো আর মণ্ডপশিল্প নিয়ে ছবি তোলেন।</p>
+        </article>
+
+        <article class="person-card glass reveal" style="--stagger:2">
+          <div class="person-head">
+            <div class="avatar" style="background: linear-gradient(135deg, var(--sindoor), var(--marigold));">শ্রে</div>
+            <div>
+              <p class="person-name">শ্রেয়া</p>
+              <p class="person-loc">বেহালা</p>
+            </div>
+          </div>
+          <p class="person-note">আড্ডাবাজ, আর ভোগ খাওয়ার ব্যাপারে ওস্তাদ।</p>
+        </article>
+
+        <article class="person-card glass reveal" style="--stagger:3">
+          <div class="person-head">
+            <div class="avatar" style="background: linear-gradient(135deg, var(--leaf), var(--brass));">সৌ</div>
+            <div>
+              <p class="person-name">সৌম্য</p>
+              <p class="person-loc">শিলিগুড়ি</p>
+            </div>
+          </div>
+          <p class="person-note">ঢাকের তালে পা মেলান, সাংস্কৃতিক অনুষ্ঠান মিস করেন না।</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ABOUT THE CREATOR
+       ========================================================= -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="about-portrait reveal" aria-hidden="true">॥</div>
+      <div class="reveal">
+        <h2 style="margin-bottom: var(--space-md)">যিনি বানিয়েছেন</h2>
+        <p class="about-quote">
+          "ছোটবেলার পুজো মানে ছিল হুট করে নতুন বন্ধু হয়ে যাওয়া — প্যান্ডেলের লাইনে, ভোগ খাওয়ার মণ্ডপে। বড় হয়ে সেই অনুভূতিটাই যেন হারিয়ে যাচ্ছিল। পুজোর সাথী সেই ছোট্ট, আন্তরিক পরিচয়গুলো আবার ফিরিয়ে আনার একটা চেষ্টা।"
+        </p>
+        <p class="about-name">— নির্মাতা, পুজোর সাথী <br><span style="font-size:var(--fs-small); color:var(--text-faint)">(এখানে নিজের নাম ও ছোট পরিচয় বসিয়ে নিন)</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ATMOSPHERE / MUSIC
+       ========================================================= -->
+  <section class="section atmosphere-section" id="atmosphere">
+    <div class="container">
+      <div class="reveal">
+        <h2>পুজোর আবহ</h2>
+        <p style="margin-top:var(--space-sm); color:var(--text-muted)">
+          ঢাকের বোল, শঙ্খধ্বনি, আরতির সুর — চালিয়ে দিন, আর অনুভব করুন উৎসবের ছোঁয়া, যেখানেই থাকুন না কেন।
+        </p>
+      </div>
+
+      <div class="player glass reveal" id="player">
+        <button class="player-play" id="playerToggle" type="button" aria-label="চালান / থামান">
+          <span id="playIcon">▶</span>
+        </button>
+        <div class="player-info">
+          <p class="player-track">আগমনী সুর</p>
+          <p class="player-sub">পুজোর সাথী রেডিও</p>
+          <div class="equalizer" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="player-volume">
+          <span aria-hidden="true">🔊</span>
+          <input type="range" id="volumeRange" min="0" max="100" value="70" aria-label="ভলিউম" />
+        </div>
+        <!-- Add your own royalty-free ambient/dhak track here -->
+        <audio id="pujaAudio" loop preload="none">
+          <source src="" type="audio/mpeg" />
+        </audio>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="brand"><span class="brand-mark">॥</span> পুজোর সাথী</a>
+        <p>এই পুজোয় একা নয় — নিজের মতো মানুষের সাথে উৎসব ভাগ করে নিন।</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>এক্সপ্লোর</h4>
+        <ul>
+          <li><a href="#countdown">পুজো আসছে</a></li>
+          <li><a href="#sathi">সাথী খুঁজুন</a></li>
+          <li><a href="#how">কীভাবে কাজ করে</a></li>
+          <li><a href="#community">কমিউনিটি</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>যোগাযোগ</h4>
+        <ul>
+          <li><a href="mailto:hello@pujorsathi.example">hello@pujorsathi.example</a></li>
+          <li><a href="#">ইনস্টাগ্রাম</a></li>
+          <li><a href="#">ফেসবুক</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© ২০২৬ পুজোর সাথী। সব অধিকার সংরক্ষিত।</span>
+      <span>শুভ বিজয়া 🌺</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/theme.js"></script>
+<script src="js/clock.js"></script>
+<script src="js/countdown.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/player.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
