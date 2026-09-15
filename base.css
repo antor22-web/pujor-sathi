@@ -1,306 +1,51 @@
  /* =========================================================
-   পুজোর সাথী — Base / Reset
-   Premium Bengali Puja UI
+   Puja Hero Background
    ========================================================= */
 
-/* -------------------------
-   Universal reset
-   ------------------------- */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-
-  font-family: var(--font-body);
-  font-size: var(--fs-body);
-  line-height: var(--lh-normal);
-
-  color: var(--text-primary);
-  background: var(--bg-1);
-
-  overflow-x: hidden;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  transition:
-    background var(--dur-slow) var(--ease-cinema),
-    color var(--dur-slow) var(--ease-cinema);
-}
-
-/* -------------------------
-   Media
-   ------------------------- */
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-img {
-  height: auto;
-}
-
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
-button {
-  color: inherit;
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-
-button:disabled {
-  cursor: not-allowed;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-a,
-button,
-input,
-textarea,
-select {
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* -------------------------
-   Lists
-   ------------------------- */
-
-ul,
-ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-/* -------------------------
-   Typography
-   ------------------------- */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-
-  font-family: var(--font-display);
-  font-weight: 600;
-  line-height: var(--lh-tight);
-
-  text-wrap: balance;
-}
-
-p {
-  margin: 0;
-  text-wrap: pretty;
-}
-
-small {
-  font-size: 0.875em;
-}
-
-/* -------------------------
-   Forms
-   ------------------------- */
-
-input,
-textarea,
-select {
-  color: inherit;
-  background: transparent;
-}
-
-textarea {
-  resize: vertical;
-}
-
-::placeholder {
-  color: currentColor;
-  opacity: 0.55;
-}
-
-/* -------------------------
-   Layout
-   ------------------------- */
-
-section {
+.hero {
   position: relative;
-}
+  min-height: 100svh;
+  isolation: isolate;
 
-.container {
-  width: min(1180px, calc(100% - 3rem));
-  margin-inline: auto;
-}
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(8, 12, 35, 0.72) 0%,
+      rgba(8, 12, 35, 0.42) 45%,
+      rgba(8, 12, 35, 0.58) 100%
+    ),
+    url("../assets/puja-bg.png");
 
-/* Prevent long text from breaking layouts */
-.container,
-section,
-article,
-.card {
-  min-width: 0;
-}
-
-/* -------------------------
-   Keyboard accessibility
-   ------------------------- */
-
-:focus {
-  outline: none;
-}
-
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
-  border-radius: 6px;
-}
-
-/* -------------------------
-   Text selection
-   ------------------------- */
-
-::selection {
-  background: var(--accent);
-  color: var(--bg-1);
-}
-
-::-moz-selection {
-  background: var(--accent);
-  color: var(--bg-1);
-}
-
-/* -------------------------
-   Scrollbar
-   ------------------------- */
-
-html {
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent) transparent;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  opacity: 0.85;
-}
-
-/* -------------------------
-   Smooth theme transition
-   ------------------------- */
-
-html[data-theme],
-body {
-  transition:
-    background-color var(--dur-slow) var(--ease-cinema),
-    color var(--dur-slow) var(--ease-cinema);
-}
-
-/* -------------------------
-   Accessibility helper
-   ------------------------- */
-
-.sr-only {
-  position: absolute;
-
-  width: 1px;
-  height: 1px;
-
-  padding: 0;
-  margin: -1px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  clip-path: inset(50%);
-
-  white-space: nowrap;
-  border: 0;
 }
 
-/* -------------------------
-   Prevent accidental overflow
-   ------------------------- */
+/* Soft cinematic overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
 
-body {
-  isolation: isolate;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255, 183, 77, 0.12),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(4, 7, 25, 0.18) 0%,
+      rgba(4, 7, 25, 0.30) 65%,
+      rgba(4, 7, 25, 0.78) 100%
+    );
 }
 
-main {
+/* Hero content stays above background */
+.hero .container {
   position: relative;
-}
-
-/* -------------------------
-   Mobile spacing
-   ------------------------- */
-
-@media (max-width: 768px) {
-  .container {
-    width: min(100% - 2rem, 1180px);
-  }
-}
-
-/* -------------------------
-   Small mobile devices
-   ------------------------- */
-
-@media (max-width: 480px) {
-  .container {
-    width: calc(100% - 1.5rem);
-  }
-}
-
-/* -------------------------
-   Reduced motion
-   ------------------------- */
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
+  z-index: 2;
 }
